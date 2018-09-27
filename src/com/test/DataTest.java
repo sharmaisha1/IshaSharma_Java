@@ -6,14 +6,17 @@ import org.json.simple.parser.ParseException;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import com.data.process.CalculateTransaction;
 import com.data.process.ReadData;
 
 public class DataTest {
 	
 	static ReadData read;
+	static CalculateTransaction calculate;
 	@BeforeClass
 	  public static void testSetup() {
 	    read = new ReadData();
+	    calculate=new CalculateTransaction();
 	  }
 
 	@Test
@@ -29,7 +32,7 @@ public class DataTest {
 	@Test
 	public void testBulkCalculate(){
 		try {
-			read.bulkCalculate(read);
+			calculate.bulkCalculate(read);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -40,7 +43,7 @@ public class DataTest {
 	@Test
 	public void transactionWiseCalculate(){
 		try {
-			read.(read);
+			calculate.transactionWiseCalculation(read);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

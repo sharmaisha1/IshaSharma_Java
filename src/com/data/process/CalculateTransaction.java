@@ -7,6 +7,7 @@ import java.util.List;
 
 public class CalculateTransaction {
 
+	//Bulk Calculation
 	public void bulkCalculate(ReadData read) throws IOException{
 		List<PositionData> eodPositions=new ArrayList<PositionData>();
 		for (Instrument ins:read.getInstList()){
@@ -49,7 +50,7 @@ public class CalculateTransaction {
 				}
 			}
 		}
-		FileWriter writer = new FileWriter("output.txt"); 
+		FileWriter writer = new FileWriter("Expected_EndOfDay_Positions.txt"); 
 		String header="Instrument,Account,AccountType,Quantity,Delta\n";
 		writer.write(header);
 		
@@ -62,6 +63,8 @@ public class CalculateTransaction {
 		writer.close();
 	}
 	
+	
+	//Transaction Wise calculation
 	public void transactionWiseCalculation(ReadData read) throws IOException{
 
 		List<PositionData> eodPositions=new ArrayList<PositionData>();
@@ -119,7 +122,7 @@ public class CalculateTransaction {
 			}
 			
 		}
-		FileWriter writer = new FileWriter("output_seq.txt"); 
+		FileWriter writer = new FileWriter("Expected_EndOfDay_Positions.txt"); 
 		String header="Instrument,Account,AccountType,Quantity,Delta\n";
 		writer.write(header);
 		
